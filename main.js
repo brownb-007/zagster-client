@@ -1,5 +1,5 @@
 $(updateView)
 
 function updateView() {
-    alert("Hello Welcome to my visualization webpage")
+    alert("Hello welcome to my visualization webpage")
 }
