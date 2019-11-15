@@ -1,30 +1,24 @@
-const BASE_URL = "https://zagster-service.herokuapp.com"
+const URL = "https://zagster-service.herokuapp.com"
 
 $(updateView)
 
-// Arrays to hold pulled data 
-
 let years = []
-
-let rides = []
 
 let months = []
 
-// Pulls jQuery request from Json data 
-
-function updatePage() {
-    $.when ($.getJSON(BASE_URL + "/rides/count/per_month", CountPerYear), 
+function updateView() {
+    $.when ($.getJSON(URL + "/rides/count/per_month", ridesPerMonth), 
     ).then(updateCountPerMonth);
 }
 
-//Total number of rides per month
 function updateRideCountPerMonth(data) {
     numberRidesPerMonth = data.count
-    $("rideCountPerMonth").html(numberRidesPerMonth)
+    $("#").html(numberRidesPerMonth)
      console.log(data)
 }
 
-function CountPerYear(data) {
+
+function ridesPerMonth(data) {
     for (var i = 2016; i <= 2018; ++i){
         years.push(data[i]);
     }
@@ -41,20 +35,39 @@ function CountPerYear(data) {
 
 
 function updateCountPerMonth() {
+
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: [ "9/16", "10/16", "11/16", "12/16", "1/17", "2/17", "3/17", "4/17", "5/17", "6/17", "7/17", "8/17", "9/17", "10/17", "11/17", "12/17", "1/18", "2/18", "3/18", "4/18", "5/18", "6/18", "7/18", "8/18","9/18", "10/18" ],
+            labels: [ "September 2016", "October 2016", "November 2016", "December 2016", "January 2017", "February 2017", "March 2017", "April 2017", "May 2017", "June 2017", "July 2017", "August 2017", "September 2017", "October 2017", "November 2017", "December 2017", "January 2018", "February 2018", "March 2018", "April 2018", "May 2018", "June 2018", "July 2018", "August 2018", "September 2018", "October 2018"],
             datasets: [{
-                label: "Count of Zagster Rides Per Month",
-                backgroundColor: '#3c1547',
-                borderColor: '#4fd581',
+                label: "Zagster Rides Per Month",
+                backgroundColor: '#31005e',
                 data: months,
             }]
         },
     
-        // Configuration options go here
-        options: {}
+
+        options: {
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }   
+                }]
+            },
+            tooltips: {
+                callbacks: {
+                  label: function(tooltipItem, chartData) {
+                    return ' Ride Count' + ': ' + chartData.datasets[0].data[tooltipItem.index];
+                }
+            }
+        }}
     });
 }
