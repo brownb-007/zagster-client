@@ -7,8 +7,12 @@ let years = []
 let months = []
 
 function updateView() {
+    //Rides per year
+
     $.when ($.getJSON(URL + "/rides/count/per_month", ridesPerMonth), 
     ).then(updateCountPerMonth);
+
+    //Rides per hour
 }
 
 function updateRideCountPerMonth(data) {
