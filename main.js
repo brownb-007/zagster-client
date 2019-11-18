@@ -42,7 +42,7 @@ function updateCountPerMonth() {
 
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: [ "September 2016", "October 2016", "November 2016", "December 2016", "January 2017", "February 2017", "March 2017", "April 2017", "May 2017", "June 2017", "July 2017", "August 2017", "September 2017", "October 2017", "November 2017", "December 2017", "January 2018", "February 2018", "March 2018", "April 2018", "May 2018", "June 2018", "July 2018", "August 2018", "September 2018", "October 2018"],
             datasets: [{
