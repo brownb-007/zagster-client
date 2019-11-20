@@ -15,3 +15,19 @@ h2 {
     margin-left:auto;
     margin-right:auto;
 }
+
+#rideCount { 
+    animation: fadeInAnimation ease 3s; 
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+    font-size: 32px;
+    font-family: 'Wallpoet', cursive;
+} 
+@keyframes fadeInAnimation { 
+    0% { 
+        opacity: 0; 
+    } 
+    100% { 
+        opacity: 1; 
+    } 
+} 
