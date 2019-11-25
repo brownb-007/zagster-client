@@ -33,7 +33,8 @@ function perMonth(data) {
     }
 }
 
-console.log(perMonth())
+console.log(updateRideCount())
+console.log(updateCountPerMonth())
 
 function updateCountPerMonth() {
 
