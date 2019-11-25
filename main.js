@@ -33,6 +33,7 @@ function perMonth(data) {
     }
 }
 
+console.log(data)
 
 function updateCountPerMonth() {
 
