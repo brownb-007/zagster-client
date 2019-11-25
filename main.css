@@ -6,12 +6,6 @@ h1 {
     float: center;
 }
 
-h2 {
-    font-size: 32px;
-    font-family: 'Wallpoet', cursive;
-    float: center;
-}
-
 .chart {
     height: 70%;
     width: 70%;

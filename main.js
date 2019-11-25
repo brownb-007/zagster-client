@@ -73,5 +73,3 @@ function updateCountPerMonth() {
         }}
     });
 }
-
-console.log(updateCountPerMonth())
