@@ -15,7 +15,6 @@ function updateView() {
 
 function updateRideCount(data) {
   numberOfRides = data.count
-  console.log(data)
   $("h2#rideCount").html(numberOfRides)
 }
 
@@ -33,6 +32,8 @@ function perMonth(data) {
         months.push(years[2][m][y]);
     }
 }
+
+console.log(perMonth())
 
 function updateCountPerMonth() {
 
