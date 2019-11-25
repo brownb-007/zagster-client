@@ -34,7 +34,7 @@ function perMonth(data) {
 }
 
 console.log(updateRideCount())
-console.log(perMonth())
+
 
 function updateCountPerMonth() {
 
@@ -73,3 +73,5 @@ function updateCountPerMonth() {
         }}
     });
 }
+
+console.log(updateCountPerMonth())
