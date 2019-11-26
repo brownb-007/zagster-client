@@ -1,13 +1,60 @@
 const BASE_URL = "https://zagster-service.herokuapp.com"
+// const PI = 3.14159
+
+// //Jquery command wait until webpage loads call function
+// //Whose name is in the parenthesis
+// //fuunction call means run the code
+
+// //call function add
+// add(2, 3);
+// //greeter is the function identifier 
+// //argument (info needed to do its job)
+// function add(num1, num2) {
+//     answer = num1 + num2
+//     console.log("The answer is: " + answer);
+//     return answer;
+// }
+// function greeter(name) {
+//     alert("Welcome to " + name + " data visualization")
+// }
+
+
+
+// greeter("Brayden Brown's")
+
+// var person = {name: "Brayden", age: 19, car: {model: " CrossTrek", year: 2019} }
+// console.log("My Name is " + person.name);
+// console.log("I'm " + person.age + " years old");
+// console.log("My car model is a" + person.car.model);
+
+// var data = {"2016":[{"9":220},{"10":141},{"11":89},{"12":16}]}
+// var year_list = data[2016]
+// console.log('Year list is ' + year_list)
+// console.log(year_list[0][9])
+// console.log(year_list[1][10])
+// console.log(year_list[2][11])
+// console.log(year_list[3][12])
+
 
 $(updateView)
 
 let years = []
 
+let years1 = []
+
 let months = []
+
+let months2016 = []
+
+let months2017 = []
+
+let months2018 = []
 
 function updateView() {
   $.getJSON(BASE_URL + "/rides/count" , updateRideCount);
+
+  $.when ($.getJSON(BASE_URL + "/rides/count/per_year", perYear), 
+  ).then(updateCountPerYear);
 
   $.when ($.getJSON(BASE_URL + "/rides/count/per_month", perMonth), 
   ).then(updateCountPerMonth);
@@ -18,6 +65,7 @@ function updateRideCount(data) {
   $("h2#rideCount").html(numberOfRides)
   console.log(data)
 }
+
 
 function perMonth(data) {
     for (var i = 2016; i <= 2018; ++i){
@@ -35,6 +83,11 @@ function perMonth(data) {
     console.log(data)
 }
 
+function perYear(data) {
+    for (var l = 2016; l <= 2018; ++l){
+        years1.push(data[l]);
+    }
+}
 
 
 
@@ -49,6 +102,44 @@ function updateCountPerMonth() {
                 label: "Zagster Rides Per Month",
                 backgroundColor: '#31005e',
                 data: months,
+            }]
+        },
+    
+
+        options: {
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }   
+                }]
+            },
+            tooltips: {
+                callbacks: {
+                  label: function(tooltipItem, chartData) {
+                    return ' Ride Count' + ': ' + chartData.datasets[0].data[tooltipItem.index];
+                }
+            }
+        }}
+    });
+}
+
+function updateCountPerYear() {
+
+    var ctx = document.getElementById('myChart2').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [ "2016", "2017", "2018"],
+            datasets: [{
+                label: "Zagster Rides Per Year",
+                backgroundColor: '#31005e',
+                data: years1,
             }]
         },
     
