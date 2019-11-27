@@ -1,39 +1,39 @@
 const BASE_URL = "https://zagster-service.herokuapp.com"
-// const PI = 3.14159
+const PI = 3.14159
 
-// //Jquery command wait until webpage loads call function
-// //Whose name is in the parenthesis
-// //fuunction call means run the code
+//Jquery command wait until webpage loads call function
+//Whose name is in the parenthesis
+//fuunction call means run the code
 
-// //call function add
-// add(2, 3);
-// //greeter is the function identifier 
-// //argument (info needed to do its job)
-// function add(num1, num2) {
-//     answer = num1 + num2
-//     console.log("The answer is: " + answer);
-//     return answer;
-// }
-// function greeter(name) {
-//     alert("Welcome to " + name + " data visualization")
-// }
+//call function add
+add(2, 3);
+//greeter is the function identifier 
+//argument (info needed to do its job)
+function add(num1, num2) {
+    answer = num1 + num2
+    console.log("The answer is: " + answer);
+    return answer;
+}
+function greeter(name) {
+    alert("Welcome to " + name + " data visualization")
+}
 
 
 
-// greeter("Brayden Brown's")
+greeter("Brayden Brown's")
 
-// var person = {name: "Brayden", age: 19, car: {model: " CrossTrek", year: 2019} }
-// console.log("My Name is " + person.name);
-// console.log("I'm " + person.age + " years old");
-// console.log("My car model is a" + person.car.model);
+var person = {name: "Brayden", age: 19, car: {model: " CrossTrek", year: 2019} }
+console.log("My Name is " + person.name);
+console.log("I'm " + person.age + " years old");
+console.log("My car model is a" + person.car.model);
 
-// var data = {"2016":[{"9":220},{"10":141},{"11":89},{"12":16}]}
-// var year_list = data[2016]
-// console.log('Year list is ' + year_list)
-// console.log(year_list[0][9])
-// console.log(year_list[1][10])
-// console.log(year_list[2][11])
-// console.log(year_list[3][12])
+var data = {"2016":[{"9":220},{"10":141},{"11":89},{"12":16}]}
+var year_list = data[2016]
+console.log('Year list is ' + year_list)
+console.log(year_list[0][9])
+console.log(year_list[1][10])
+console.log(year_list[2][11])
+console.log(year_list[3][12])
 
 
 $(updateView)
@@ -50,6 +50,8 @@ let months2017 = []
 
 let months2018 = []
 
+let hours = []
+
 function updateView() {
   $.getJSON(BASE_URL + "/rides/count" , updateRideCount);
 
@@ -58,6 +60,9 @@ function updateView() {
 
   $.when ($.getJSON(BASE_URL + "/rides/count/per_month", perMonth), 
   ).then(updateCountPerMonth);
+
+  $.when ($.getJSON(BASE_URL + "/rides/count/per_hour", perHour),
+  ).then(updateCountPerHour)
 }
 
 function updateRideCount(data) {
@@ -86,6 +91,12 @@ function perMonth(data) {
 function perYear(data) {
     for (var l = 2016; l <= 2018; ++l){
         years1.push(data[l]);
+    }
+}
+
+function perHour(data) {
+    for (var h = 0; h <= 23; ++h){
+        hours.push(data[h]);
     }
 }
 
@@ -152,6 +163,51 @@ function updateCountPerYear() {
                     }
                 }],
                 yAxes: [{
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }   
+                }]
+            },
+            tooltips: {
+                callbacks: {
+                  label: function(tooltipItem, chartData) {
+                    return ' Ride Count' + ': ' + chartData.datasets[0].data[tooltipItem.index];
+                }
+            }
+        }}
+    });
+}
+
+function updateCountPerHour() {
+
+    var ctx = document.getElementById('myChart3').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: [ "Hour: 0", "Hour: 1", "Hour: 2", "Hour: 3", "Hour: 4", 
+            "Hour: 5", "Hour: 6", "Hour: 7", "Hour: 8", "Hour: 9", "Hour: 10", 
+            "Hour: 11", "Hour: 12", "Hour: 13", "Hour: 14", 
+            "Hour: 15", "Hour: 16", "Hour: 17", "Hour: 18", "Hour: 19", 
+            "Hour: 20", "Hour: 21", "Hour: 22", "Hour: 23"],
+            datasets: [{
+                label: "Zagster Rides Per Hour of the day",
+                backgroundColor: '#31005e',
+                data: hours,
+            }]
+        },
+    
+
+        options: {
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        stepSize: 200
+                    },
                     gridLines: {
                         color: "rgba(0, 0, 0, 0)",
                     }   
