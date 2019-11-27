@@ -27,6 +27,14 @@ console.log("My Name is " + person.name);
 console.log("I'm " + person.age + " years old");
 console.log("My car model is a" + person.car.model);
 
+function young(age){
+    if (age <= 30) {
+        alert("You're Young and agile");
+    } 
+}
+
+young(19)
+
 var data = {"2016":[{"9":220},{"10":141},{"11":89},{"12":16}]}
 var year_list = data[2016]
 console.log('Year list is ' + year_list)
