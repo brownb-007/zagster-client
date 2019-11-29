@@ -126,6 +126,11 @@ function updateCountPerMonth() {
     
 
         options: {
+            legend: {
+                labels: {
+                    fontColor: "black"
+                }
+            },
             scales: {
                 xAxes: [{
                     ticks: {
@@ -170,6 +175,11 @@ function updateCountPerYear() {
     
 
         options: {
+            legend: {
+                labels: {
+                    fontColor: "black"
+                }
+            },
             scales: {
                 xAxes: [{
                     ticks: {
@@ -218,6 +228,11 @@ function updateCountPerHour() {
     
 
         options: {
+            legend: {
+                labels: {
+                    fontColor: "black"
+                }
+            },
             scales: {
                 xAxes: [{
                     ticks: {
