@@ -128,11 +128,17 @@ function updateCountPerMonth() {
         options: {
             scales: {
                 xAxes: [{
+                    ticks: {
+                        fontColor: 'black',
+                    },
                     gridLines: {
                         color: "rgba(0, 0, 0, 0)",
                     }
                 }],
                 yAxes: [{
+                    ticks: {
+                        fontColor: 'black',
+                    },
                     gridLines: {
                         color: "rgba(0, 0, 0, 0)",
                     }   
@@ -166,11 +172,17 @@ function updateCountPerYear() {
         options: {
             scales: {
                 xAxes: [{
+                    ticks: {
+                        fontColor: 'black',
+                    },
                     gridLines: {
                         color: "rgba(0, 0, 0, 0)",
                     }
                 }],
                 yAxes: [{
+                    ticks: {
+                        fontColor: 'black',
+                    },
                     gridLines: {
                         color: "rgba(0, 0, 0, 0)",
                     }   
@@ -208,13 +220,17 @@ function updateCountPerHour() {
         options: {
             scales: {
                 xAxes: [{
+                    ticks: {
+                        fontColor: 'black',
+                    },
                     gridLines: {
                         color: "rgba(0, 0, 0, 0)",
                     }
                 }],
                 yAxes: [{
                     ticks: {
-                        stepSize: 200
+                        stepSize: 200,
+                        fontColor: 'black',
                     },
                     gridLines: {
                         color: "rgba(0, 0, 0, 0)",

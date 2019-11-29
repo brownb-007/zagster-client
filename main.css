@@ -1,9 +1,19 @@
 body {
     font-family: "Helvetica", "Arial", "sans-serif";
+    background-color: rgb(175, 169, 169);
+    text-align: center;
 }
 
 h1 {
-    float: center;
+    text-align: center;
+}
+
+h3 {
+    font-size: 20px
+}
+
+p {
+    font-size: 20px
 }
 
 .chart {
