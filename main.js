@@ -214,11 +214,11 @@ function updateCountPerHour() {
     var chart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: [ "Hour: 0", "Hour: 1", "Hour: 2", "Hour: 3", "Hour: 4", 
-            "Hour: 5", "Hour: 6", "Hour: 7", "Hour: 8", "Hour: 9", "Hour: 10", 
-            "Hour: 11", "Hour: 12", "Hour: 13", "Hour: 14", 
-            "Hour: 15", "Hour: 16", "Hour: 17", "Hour: 18", "Hour: 19", 
-            "Hour: 20", "Hour: 21", "Hour: 22", "Hour: 23"],
+            labels: [ "Hour : 0", "Hour : 1", "Hour : 2", "Hour : 3", "Hour : 4", 
+            "Hour : 5", "Hour : 6", "Hour : 7", "Hour : 8", "Hour : 9", "Hour : 10", 
+            "Hour : 11", "Hour : 12", "Hour : 13", "Hour : 14", 
+            "Hour : 15", "Hour : 16", "Hour : 17", "Hour : 18", "Hour : 19", 
+            "Hour : 20", "Hour : 21", "Hour : 22", "Hour : 23"],
             datasets: [{
                 label: "Zagster Rides Per Hour of the day",
                 backgroundColor: '#31005e',
