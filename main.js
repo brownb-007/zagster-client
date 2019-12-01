@@ -220,7 +220,7 @@ function updateCountPerHour() {
             "Hour : 15", "Hour : 16", "Hour : 17", "Hour : 18", "Hour : 19", 
             "Hour : 20", "Hour : 21", "Hour : 22", "Hour : 23"],
             datasets: [{
-                label: "Zagster Rides Per Hour of the day",
+                label: "Zagster Rides Hourly",
                 backgroundColor: '#31005e',
                 data: hours,
             }]
