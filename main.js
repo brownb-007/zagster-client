@@ -104,6 +104,7 @@ function perMonth(data) {
     for (var t = 0, q = 1; t <=9, q <= 10; ++t, ++q) {
         months.push(years[2][t][q]);//2018
     }
+    console.log(data)
 }
 
 function perYear(data) {
