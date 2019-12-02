@@ -1,39 +1,50 @@
 const BASE_URL = "https://zagster-service.herokuapp.com"
-const PI = 3.14159
+// const PI = 3.14159
 
-//Jquery command wait until webpage loads call function
-//Whose name is in the parenthesis
-//fuunction call means run the code
+// //Jquery command wait until webpage loads call function
+// //Whose name is in the parenthesis
+// //fuunction call means run the code
 
-//call function add
-add(2, 3);
-//greeter is the function identifier 
-//argument (info needed to do its job)
-function add(num1, num2) {
-    answer = num1 + num2
-    console.log("The answer is: " + answer);
-    return answer;
-}
-function greeter(name) {
-    alert("Welcome to " + name + " data visualization")
-}
+// //call function add
+// add(2, 3);
+// //greeter is the function identifier 
+// //argument (info needed to do its job)
+// function add(num1, num2) {
+//     answer = num1 + num2
+//     console.log("The answer is: " + answer);
+//     return answer;
+// }
+// function greeter(name) {
+//     alert("Welcome to " + name + " data visualization")
+// }
 
 
 
-greeter("Brayden Brown's")
+// greeter("Brayden Brown's")
 
-var person = {name: "Brayden", age: 19, car: {model: " CrossTrek", year: 2019} }
-console.log("My Name is " + person.name);
-console.log("I'm " + person.age + " years old");
-console.log("My car model is a" + person.car.model);
+// var person = {name: "Brayden", age: 19, car: {model: " CrossTrek", year: 2019} }
+// console.log("My Name is " + person.name);
+// console.log("I'm " + person.age + " years old");
+// console.log("My car model is a" + person.car.model);
 
-function young(age){
-    if (age <= 30) {
-        alert("You're Young and agile");
-    } 
-}
+// function young(age){
+//     if (age <= 30) {
+//         alert("You're Young and agile");
+//     } 
+// }
 
-young(19)
+// young(19)
+var color = new Array();
+color[0] = "#c7d0d8";
+color[1] = "#B5B2CB ";
+
+
+function changeColor()
+{
+  var randomColor = Math.floor(Math.random() * color.length);
+  console.log(color[randomColor]);
+    document.getElementsByTagName("body")[0].style.backgroundColor=color[randomColor];
+};
 
 var data = {"2016":[{"9":220},{"10":141},{"11":89},{"12":16}]}
 var year_list = data[2016]
