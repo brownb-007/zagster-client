@@ -93,16 +93,16 @@ function updateRideCount(data) {
 
 function perMonth(data) {
     for (var i = 2016; i <= 2018; ++i){
-        years.push(data[i]);
+        years.push(data[i]);//index key
     }
-    for (var m = 0, y = 9; m <=3, y <= 12; ++m, ++y) {
-        months.push(years[0][m][y]);
+    for (var t = 0, q = 9; t <=3, q <= 12; ++t, ++q) {
+        months.push(years[0][t][q]);//2016
     }
-    for (var m = 0, y = 1; m <=11, y <= 12; ++m, ++y) {
-        months.push(years[1][m][y]);
+    for (var t = 0, q = 1; t <=11, q <= 12; ++t, ++q) {
+        months.push(years[1][t][q]);//2017
     }
-    for (var m = 0, y = 1; m <=9, y <= 10; ++m, ++y) {
-        months.push(years[2][m][y]);
+    for (var t = 0, q = 1; t <=9, q <= 10; ++t, ++q) {
+        months.push(years[2][t][q]);//2018
     }
     console.log(data)
 }
